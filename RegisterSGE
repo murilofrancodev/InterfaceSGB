@@ -1,0 +1,90 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class CadastroGUI implements ActionListener {
+	
+	private static JLabel userLabel;
+	private static JTextField userText;
+	private static JLabel passwordLabel;
+	private static JPasswordField passwordText;
+	private static JLabel passwordLabel1;
+	private static JPasswordField passwordText1;
+	private static JButton button;
+	private static JButton button1;
+	private static JLabel success;
+
+	public static void main(String[] args) {
+		
+		
+		JPanel panel = new JPanel();
+		JFrame frame = new JFrame();
+		frame.setSize(500, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.add(panel);
+		
+		panel.setLayout(null);
+		
+		userLabel = new JLabel("Digite o Nome Completo:");
+		userLabel.setBounds(10, 20, 150, 25);
+		panel.add(userLabel);
+
+		userText = new JTextField(20);
+		userText.setBounds(170, 20, 165, 25);
+		panel.add(userText);
+		
+		passwordLabel = new JLabel("Digite  Senha:");
+		passwordLabel.setBounds(10, 50, 150, 25);
+		panel.add(passwordLabel);
+		
+		passwordText = new JPasswordField();
+		passwordText.setBounds(170, 50, 165, 25);
+		panel.add(passwordText);
+
+		passwordLabel1 = new JLabel("Digite a Senha novamente:");
+		passwordLabel1.setBounds(10, 80, 160, 25);
+		panel.add(passwordLabel1);
+		
+		passwordText1 = new JPasswordField();
+		passwordText1.setBounds(170, 80, 165, 25);
+		panel.add(passwordText1);
+
+		button = new JButton("Cadastrar");
+		button.setBounds (50, 120, 120, 25);
+		button.addActionListener(new CadastroGUI());
+		panel.add(button);
+		
+		success = new JLabel("");
+		success.setBounds(50, 150, 200, 25);
+		panel.add(success);
+		
+		button1 = new JButton("Login");
+		button1.setBounds (50, 180, 120, 25);
+		button1.addActionListener(new CadastroGUI());
+		panel.add(button1);
+		
+		frame.setVisible(true);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+	     String user = userText.getText();
+	     String password = passwordText.getText();
+	     String passwordagain = passwordText1.getText();
+	     
+	     if(passwordagain.equals("Saopaulo10"))
+	     if(user.equals("Murilo de Almeida Silva Franco") && password.equals(passwordagain)) {
+	    	 success.setText("Cadastrado com sucesso, faça o Login");
+	     }
+		
+	}
+
+}
